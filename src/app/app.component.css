@@ -1,0 +1,19 @@
+h1 {
+  background-color: green;
+}
+
+div {
+  background-color: lightblue;
+}
+
+p {
+  background-color: yellow;
+}
+
+main{
+  margin-top: 1 rem;
+  width: 60%;
+  margin: auto;
+  text-align: center;
+}
+

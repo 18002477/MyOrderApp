@@ -1,0 +1,10 @@
+<mat-accordion *ngIf ="orders.length > 0">
+  <mat-expansion-panel *ngFor= "let order of orders">
+    <mat-expansion-panel-header>
+      {{order.userName}}
+    </mat-expansion-panel-header>
+    {{order.Email}} {{order.PlacedOrder}}
+  </mat-expansion-panel>
+</mat-accordion>
+<p *ngIf ="orders.length == 0"> No orders created yet</p>
+

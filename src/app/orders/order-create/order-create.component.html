@@ -1,21 +1,23 @@
 <h5>Create your order here please</h5>
 <mat-card>
-<form name="login">
+<form class ="login" name="login" (submit)= "onAddOrder(postOrder)" #postOrder="ngForm">
   <mat-form-field>
-    <input matInput type="text" [(ngModel)]= "userName" name="userName" placeholder="userName"/>
+    <input required matInput type="text" ngModel name= "enteredUserName" placeholder="User Name" minlength="8" pattern="^[a-zA-Z0-9\s_-]+$" #enteredUserName="ngModel"/>
+    <mat-error *ngIf= "enteredUserName.invalid">{{enteredUserNameError}}</mat-error>
   </mat-form-field>
   <br>
   <mat-form-field>
-    <input matInput type="email" name="emailAddress" placeholder="emailAddress"/>
+    <input required matInput type="email" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" ngModel name= "enteredEmail" placeholder="Email Address" #enteredEmail="ngModel"/>
+    <mat-error *ngIf= "enteredEmail.invalid">{{enteredEmailError}}</mat-error>
   </mat-form-field>
   <br>
   <mat-form-field>
-    <textarea matInput name="order"></textarea>
+    <textarea required matInput ngModel name= "enteredOrder" maxlength="50" #enteredOrder="ngModel"></textarea>
+    <mat-error *ngIf= "enteredOrder.invalid">{{enteredOrderError}}</mat-error>
   </mat-form-field>
 </form>
 <br>
-<button mat-raised-button (click) = "onAddOrder()">Order Now</button>
+<button mat-raised-button type = "submit">Order Now</button>
 </mat-card>
 <hr>
 
-<h6><p>{{newOrder}}</p></h6>
