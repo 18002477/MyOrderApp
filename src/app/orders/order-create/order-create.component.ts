@@ -16,9 +16,9 @@ export class OrderCreateComponent{
   enteredEmailError='Please enter a correctly formatted email address';
   enteredOrderError='Please enter an order of no more than 50 characters';
 
-  //enteredUserName='';
-  //enteredEmail='';
-  //enteredOrder='';
+  enteredUserName='';
+  enteredEmail='';
+  enteredOrder='';
 
   constructor(public orderService:OrdersService){}
 

@@ -15,9 +15,10 @@
     <textarea required matInput ngModel name= "enteredOrder" maxlength="50" #enteredOrder="ngModel"></textarea>
     <mat-error *ngIf= "enteredOrder.invalid">{{enteredOrderError}}</mat-error>
   </mat-form-field>
-</form>
+
 <br>
 <button mat-raised-button type = "submit">Order Now</button>
+</form>
 </mat-card>
 <hr>
 
