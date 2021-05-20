@@ -3,6 +3,7 @@ import {Injectable} from '@angular/core';
 import { Subject } from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 
+
 @Injectable({providedIn: 'root'})
 export class OrdersService
 {
@@ -29,8 +30,13 @@ export class OrdersService
   addOrders(userName: string,Email: string,PlacedOrder: string )
   {
     const order: Order = {id:null, userName: userName, Email:Email,PlacedOrder:PlacedOrder};
-    this.orders.push(order);
-    this.updatedOrders.next([...this.orders]);
+    this.http.post<{message: String}>('https://localhost:3000/api/orders',order)
+    .subscribe((responseOrderData)=>{
+      console.log(responseOrderData.message);
+      this.orders.push(order);
+      this.updatedOrders.next([...this.orders]);
+    });
+
   }
 
 }
